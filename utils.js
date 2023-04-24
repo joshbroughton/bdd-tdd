@@ -12,8 +12,11 @@ const area = (w, h) => {
 }
 
 const perimeter = (w, h) => {
-  const perimeter = 2 * (w + h);
-  return perimeter >= 0 ? perimeter : null;
+  if (w < 0 || h < 0) {
+    return null;
+  } else {
+    return 2 * (w + h);
+  }
 }
 
 const circleArea = r => {
