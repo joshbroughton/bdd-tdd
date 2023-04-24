@@ -95,7 +95,11 @@ it("Should return an array containing all items in cart", function() {
   expect(currentCart).to.have.lengthOf(0);
 });
 
-it("Should add a new item to the shopping cart")
+it("Should add a new item to the shopping cart", function() {
+  const item = utils.createItem("apple", 0.99);
+  const currentCart = utils.addItemToCart(item);
+  expect(currentCart).to.include(item);
+});
 
 it("Should return the number of items in the cart")
 
