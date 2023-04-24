@@ -57,7 +57,11 @@ it("Should return null if negative length is given to perimeter function", funct
   expect(perimeter).to.be.null;
 });
 
-it("Should return the area of a circle given the radius");
+it("Should return the area of a circle given the radius", function() {
+  const area = utils.circleArea(2);
+  expect(area).to.be.a('number');
+  expect(area).to.equal(Math.PI * (2 * 2));
+});
 
 it("Should return null if the radius is negative");
 
