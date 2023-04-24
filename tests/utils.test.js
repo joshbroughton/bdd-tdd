@@ -32,13 +32,20 @@ it("Should return the area of a rectangle given its dimensions", function() {
 });
 
 it("Should return null if negative width is given to area function", function() {
-  const result = utils.area(-2, 2);
-  expect(result).to.be.null;
+  const area = utils.area(-2, 2);
+  expect(area).to.be.null;
 });
 
-it("Should return null if negative length is given to area function");
+it("Should return null if negative length is given to area function", function() {
+  const area = utils.area(2, -2);
+  expect(area).to.be.null;
+});
 
-it("Should return the perimeter of a rectangle given its dimensions");
+it("Should return the perimeter of a rectangle given its dimensions", function() {
+  const perimeter = utils.perimeter(2, 2);
+  expect(perimeter).to.be.a('number');
+  expect(perimeter).to.equal(8);
+});
 
 it("Should return null if negative width is given to perimeter function");
 
