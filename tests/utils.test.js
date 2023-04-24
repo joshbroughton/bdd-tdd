@@ -101,7 +101,17 @@ it("Should add a new item to the shopping cart", function() {
   expect(currentCart).to.include(item);
 });
 
-it("Should return the number of items in the cart")
+it("Should return the number of items in the cart", function() {
+  const item = utils.createItem("apple", 0.99);
+  const fancyBanana = utils.createItem("banana", 1.99);
+  utils.addItemToCart(item);
+  utils.addItemToCart(item);
+  utils.addItemToCart(fancyBanana);
+
+  const numItems = utils.getNumItemsInCart();
+  expect(numItems).to.be.a('number');
+  expect(numItems).to.equal(3)
+});
 
 it("Should remove items from cart")
 

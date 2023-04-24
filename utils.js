@@ -50,7 +50,12 @@ const addItemToCart = (item) => {
 }
 
 const getNumItemsInCart = () => {
-  // should return the total quantity of items in cart
+  let sum = 0
+  shoppingCart.forEach((item) => {
+    sum += item.quantity;
+  });
+
+  return sum;
 }
 
 const removeItemFromCart = (item) => {
