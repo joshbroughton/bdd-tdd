@@ -7,12 +7,12 @@ const sayHello = () => {
 }
 
 const area = (w, h) => {
-  const area = w * h
+  const area = w * h;
   return area >= 0 ? area : null;
 }
 
 const perimeter = (w, h) => {
-  // should return the perimeter
+  return 2 * (w + h);
 }
 
 const circleArea = r => {
