@@ -41,7 +41,7 @@ const createItem = (name, price) => {
 }
 
 const getShoppingCart = () => {
-  // should return the current state of shopping cart
+  return shoppingCart;
 }
 
 const addItemToCart = (item) => {

@@ -68,10 +68,6 @@ it("Should return null if the radius is negative", function() {
   expect(area).to.be.null;
 });
 
-
-
-
-
 // ========================================================
 // Level 2 Challenges
 // ========================================================
@@ -93,7 +89,11 @@ it("Should create a new (object) Item with name and price", function() {
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+it("Should return an array containing all items in cart", function() {
+  const currentCart = utils.getShoppingCart();
+  expect(currentCart).to.be.an.instanceOf(Array);
+  expect(currentCart).to.have.lengthOf(0);
+});
 
 it("Should add a new item to the shopping cart")
 
