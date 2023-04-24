@@ -45,7 +45,8 @@ const getShoppingCart = () => {
 }
 
 const addItemToCart = (item) => {
-  // should add item to shopping cart
+  shoppingCart.unshift(item);
+  return shoppingCart;
 }
 
 const getNumItemsInCart = () => {
