@@ -20,7 +20,7 @@ const perimeter = (w, h) => {
 }
 
 const circleArea = r => {
-  return Math.PI * (r * r);
+  return r >= 0 ? Math.PI * (r * r) : null;
 }
 
 // ========================================================

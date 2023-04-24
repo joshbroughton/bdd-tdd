@@ -63,7 +63,10 @@ it("Should return the area of a circle given the radius", function() {
   expect(area).to.equal(Math.PI * (2 * 2));
 });
 
-it("Should return null if the radius is negative");
+it("Should return null if the radius is negative", function() {
+  const area = utils.circleArea(-2);
+  expect(area).to.be.null;
+});
 
 
 
