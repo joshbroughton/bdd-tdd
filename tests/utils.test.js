@@ -113,14 +113,38 @@ it("Should return the number of items in the cart", function() {
   expect(numItems).to.equal(3)
 });
 
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  // chai will pass "item" here into removeItemFromCart
+  // in the expect call
+  const item = utils.createItem("apple", 0.99);
+  utils.addItemToCart(item);
+  utils.addItemToCart(item);
+  // test that one apple is removed when the method is called
+  expect(utils.removeItemFromCart).to.decrease(utils.getNumItemsInCart).by(1);
+});
 
 // ========================================================
 // Stretch Challenges
 // ========================================================
 
-it("Should update the count of items in the cart")
+it("Should update the count of items in the cart", function() {
+  const item = utils.createItem("apple", 0.99);
+  expect(utils.addItemToCart).to.increase(utils.getNumItemsInCart).by(1);
+});
 
-it("Should validate that an empty cart has 0 items")
+it("Should validate that an empty cart has 0 items", function() {
+  const cartLength = utils.clearCart();
+  expect(cartLength).to.equal(0);
+});
 
-it("Should return the total cost of all items in the cart")
+it("Should return the total cost of all items in the cart", function() {
+  const item = utils.createItem("apple", 0.99);
+  const fancyBanana = utils.createItem("banana", 1.99);
+  utils.addItemToCart(item);
+  utils.addItemToCart(item);
+  utils.addItemToCart(fancyBanana);
+  const price = utils.sumCart();
+  expect(price).to.be.a('number');
+  // was failing due to float precision, using delta test
+  expect(price).to.be.closeTo(3.97, 0.000001);
+});

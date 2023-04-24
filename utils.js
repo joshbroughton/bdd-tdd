@@ -33,7 +33,8 @@ const circleArea = r => {
 const shoppingCart = []
 
 const clearCart = () => {
-  shoppingCart.length = 0
+  shoppingCart.length = 0;
+  return getNumItemsInCart();
 }
 
 const createItem = (name, price) => {
@@ -50,20 +51,25 @@ const addItemToCart = (item) => {
 }
 
 const getNumItemsInCart = () => {
-  let sum = 0
+  return shoppingCart.length
+}
+
+const removeItemFromCart = (item) => {
+  const index = shoppingCart.indexOf(item);
+  shoppingCart.splice(index, 1);
+}
+
+const sumCart = () => {
+  let sum = 0;
   shoppingCart.forEach((item) => {
-    sum += item.quantity;
+    sum += item.price * item.quantity;
   });
 
   return sum;
 }
 
-const removeItemFromCart = (item) => {
-  // should remove item from shopping cart
-}
-
 module.exports = {
   sayHello, area, perimeter, circleArea,
   clearCart, createItem, getShoppingCart, addItemToCart,
-  getNumItemsInCart, removeItemFromCart
+  getNumItemsInCart, removeItemFromCart, sumCart
 }
