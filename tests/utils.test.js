@@ -47,9 +47,15 @@ it("Should return the perimeter of a rectangle given its dimensions", function()
   expect(perimeter).to.equal(8);
 });
 
-it("Should return null if negative width is given to perimeter function");
+it("Should return null if negative width is given to perimeter function", function() {
+  const perimeter = utils.perimeter(-2, 2);
+  expect(perimeter).to.be.null;
+});
 
-it("Should return null if negative length is given to perimeter function");
+it("Should return null if negative length is given to perimeter function", function() {
+  const perimeter = utils.perimeter(2, -2);
+  expect(perimeter).to.be.null;
+});
 
 it("Should return the area of a circle given the radius");
 
