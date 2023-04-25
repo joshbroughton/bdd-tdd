@@ -46,17 +46,37 @@ const getShoppingCart = () => {
 }
 
 const addItemToCart = (item) => {
-  shoppingCart.unshift(item);
+  if (shoppingCart.includes(item)) {
+    const index = shoppingCart.indexOf(item);
+    shoppingCart[index].quantity += 1;
+  } else {
+    shoppingCart.unshift(item);
+  }
+
   return shoppingCart;
 }
 
 const getNumItemsInCart = () => {
-  return shoppingCart.length
+  if (shoppingCart.length === 0) {
+    return 0;
+  } else {
+    let sum = 0;
+    shoppingCart.forEach((thing) => {
+      sum += thing.quantity;
+    })
+
+    return sum;
+  }
+
 }
 
 const removeItemFromCart = (item) => {
   const index = shoppingCart.indexOf(item);
-  shoppingCart.splice(index, 1);
+  if (shoppingCart[index].quantity > 1) {
+    shoppingCart[index].quantity -= 1;
+  } else {
+    shoppingCart.splice(index, 1);
+  }
 }
 
 const sumCart = () => {

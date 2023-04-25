@@ -114,13 +114,12 @@ it("Should return the number of items in the cart", function() {
 });
 
 it("Should remove items from cart", function() {
-  // chai will pass "item" here into removeItemFromCart
-  // in the expect call
   const item = utils.createItem("apple", 0.99);
   utils.addItemToCart(item);
   utils.addItemToCart(item);
-  // test that one apple is removed when the method is called
-  expect(utils.removeItemFromCart).to.decrease(utils.getNumItemsInCart).by(1);
+
+  utils.removeItemFromCart(item);
+  expect(utils.getNumItemsInCart()).to.equal(1);
 });
 
 // ========================================================
@@ -129,7 +128,8 @@ it("Should remove items from cart", function() {
 
 it("Should update the count of items in the cart", function() {
   const item = utils.createItem("apple", 0.99);
-  expect(utils.addItemToCart).to.increase(utils.getNumItemsInCart).by(1);
+  utils.addItemToCart(item);
+  expect(utils.getNumItemsInCart()).to.equal(1);
 });
 
 it("Should validate that an empty cart has 0 items", function() {
